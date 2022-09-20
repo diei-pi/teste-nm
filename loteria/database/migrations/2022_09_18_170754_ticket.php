@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->boolean('winner')->default(false);
-            $table->boolean('machineNumbers')->nullable(true);
+            $table->json('machineNumbers')->nullable(true);
             $table->json('numbers');
             $table->string('message')->default("not yet");
         });
