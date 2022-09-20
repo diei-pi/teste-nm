@@ -18,7 +18,7 @@ class TicketController extends Controller
     public function index(Request $request)
     {
         $id = base64_decode($request->ticketCode);
-        $ticket = Ticket::find($id);
+        $ticket = $this->repository->retriveTicket($id);
         if (!isset($ticket)){
             return [];
         }

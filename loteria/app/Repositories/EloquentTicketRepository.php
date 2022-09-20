@@ -15,4 +15,9 @@ class EloquentTicketRepository implements TicketRepository
         $ticket = Ticket::create(["name"=>$request->name,"numbers"=>$numbers]);
         return $ticket;
     }
+
+    public function retriveTicket(int $id): Ticket
+    {
+        return Ticket::find($id);
+    }
 }
