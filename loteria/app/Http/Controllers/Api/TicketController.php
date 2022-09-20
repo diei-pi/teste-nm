@@ -17,7 +17,7 @@ class TicketController extends Controller
     }
     public function index(Request $request)
     {
-        $id = $request->ticketCode;
+        $id = base64_decode($request->ticketCode);
         $ticket = Ticket::find($id);
         if (!isset($ticket)){
             return [];
@@ -37,7 +37,6 @@ class TicketController extends Controller
         $ticket = $this->repository->createTicket($request);
         $ticketCreatedEvent = new TicketCreatedEvent($ticket);
         event($ticketCreatedEvent);
-        return $ticket->ticketCode;
-
+        return ["ticketCode" => base64_encode($ticket->id)];
     }
 }
