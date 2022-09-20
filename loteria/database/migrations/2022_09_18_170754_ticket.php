@@ -19,7 +19,6 @@ return new class extends Migration
             $table->boolean('winner')->default(false);
             $table->boolean('machineNumbers')->nullable(true);
             $table->json('numbers');
-            $table->string('ticketCode')->nullable(true);
             $table->string('message')->default("not yet");
         });
     }
