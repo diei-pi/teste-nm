@@ -26,7 +26,7 @@ class PrizeDrawMaker implements ShouldQueue
      */
     public function handle(TicketCreated $event)
     {
-        // sleep(30);
+        sleep(30);
         $randomNumbers = [];
         for ($i=0; $i<6;$i++) {
             $randomNumbers[] = rand(1,60);
